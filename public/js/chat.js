@@ -17,7 +17,7 @@ document.querySelector('#message-form').addEventListener('submit', (e)=>{
     socket.emit('sendMessage', message)
 })
 
-document.querySelector('send-location').addEventListener('click', ()=>
+document.querySelector('#send-location').addEventListener('click', ()=>
 {
      
     if(!navigator.geolocation)  {
@@ -27,13 +27,16 @@ document.querySelector('send-location').addEventListener('click', ()=>
     }
    
 
-    navigator.geolocation((position)=>{
+    navigator.geolocation.getCurrentPosition((position)=>{
+
+        console.log(position)
 
 
 
 
         
-    }
+    })
+}
 
 
 
