@@ -29,7 +29,14 @@ document.querySelector('#send-location').addEventListener('click', ()=>
 
     navigator.geolocation.getCurrentPosition((position)=>{
 
-        console.log(position)
+        //console.log(position)
+        socket.emit('sendLocation', {
+            
+            latitude : position.coords.latitude,
+            longitude: position.coords.longitude
+
+
+        })
 
 
 
