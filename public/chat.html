@@ -39,22 +39,36 @@
      
 
     <script id="message-template" type="text/html">
+        
+           
+      
        <div class="message">
            <p>
-               <span class="message__name">
+               <span class="message__name" id="raj">
                {{username}}
+               </span>
+               <span id="donotdis" style="display: none;">
+                   {{currentuser}}
                </span>
 
                <span class="message__meta">
                 {{createdAt}}
                </span>
            </p>
-            <p>  {{message}} </p>
+            
+
+           
+           <div class="lal" style="padding: 6px;text-align: left;
+          
+           background-color: rgb(0, 153, 255);
+           color: white ;width: 50%;overflow-wrap: break-word;">
+            <p>  {{message}} </p> </div>
                  
            
 
         </div>
-
+      
+           
          
 
     </script>
@@ -92,7 +106,7 @@
             {{/users}}
         </ul>
     </script>
-
+    
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
@@ -101,6 +115,7 @@
 
    <script src='/socket.io/socket.io.js'></script>
 <script src='/js/chat.js'></script>
+
    
   
 </body>

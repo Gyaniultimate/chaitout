@@ -42,15 +42,27 @@ const autoscroll = () => {
 }
 
 socket.on('message',(message)=>{
-
+   t=0
     console.log(message)
     const html = Mustache.render(messageTemplate,{
         username: message.username,
         message: message.text,
+        currentuser:username,
+        
         createdAt: moment(message.createdAt).format('h:mm A')
     })
     $messages.insertAdjacentHTML('beforeend',html)
+    t=t+1
+    if(message.username!=username)
+    {document.getElementsByClassName("lal")[document.getElementsByClassName("lal").length-1].style.backgroundColor="#4e19f1"
+     
+
+
+    document.getElementsByClassName("message")[document.getElementsByClassName("lal").length-1].style.marginLeft="20px"
+         }
+   
     autoscroll()
+
 
 })
 
