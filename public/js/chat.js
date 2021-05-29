@@ -54,7 +54,7 @@ socket.on('message',(message)=>{
     $messages.insertAdjacentHTML('beforeend',html)
     t=t+1
     if(message.username!=username)
-    {document.getElementsByClassName("lal")[document.getElementsByClassName("lal").length-1].style.backgroundColor="#4e19f1"
+    {document.getElementsByClassName("lal")[document.getElementsByClassName("lal").length-1].style.backgroundColor="rgb(233 32 199)"
      
 
 
