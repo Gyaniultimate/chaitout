@@ -1,5 +1,5 @@
 <h1>chatitout </h1>
-
+deployed at https://gyanchatapp.herokuapp.com/
 <h2>Learning project to learn and implement features of socket.io in Node.js. <h2>
 
 npm run dev to run it on your local machine. 
