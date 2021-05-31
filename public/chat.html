@@ -7,6 +7,7 @@
     <title>chatitout</title>
     <link rel="icon" href="./img/join.PNG">
     <link rel="stylesheet" href="css/styles.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <body>
@@ -25,7 +26,7 @@
          <div class="compose">
           <form id="message-form">
                   <input name="message" placeholder="Message" required autocomplete="off">
-                  <button onclick="convert();" >Send</button>
+                  <button  >Send</button>
        
           </form>
          
@@ -58,17 +59,20 @@
            </p>
             
 
-           
+           <div class="media w-50 mb-3"> 
+            <div class="media-body ml-3">
+              
            <div class="lal" style="padding: 6px;text-align: left;
           
            background-color: rgb(0, 153, 255);
            color: white ;width: 50%;overflow-wrap: break-word;">
-            <p class="converted_url">  {{message}} </p> </div>
+            <p class="converted_url">  {{message}} </p>  
                  
            
 
         </div>
-      
+      </div></div></div>
+
            
          
 
@@ -121,16 +125,9 @@
 <script src='/js/chat.js'></script>
 
 
-<script type="text/javascript">
-    function convert()
-    {
-     // var text=document.getElementById("message").value;
-     // var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
-     // var text1=text.replace(exp, "<a href='$1'>$1</a>");
-      var exp2 =/(^|[^\/])(www\.[\S]+(\b|$))/gim;
-      document.getElementById("converted_url").innerHTML=text1.replace(exp2, '$1<a target="_blank" href="http://$2">$2</a>');
-    }
-  </script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
    
   
