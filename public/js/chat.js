@@ -60,6 +60,11 @@ socket.on('message',(message)=>{
 
     document.getElementsByClassName("message")[document.getElementsByClassName("lal").length-1].style.marginLeft="20px"
          }
+         var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+       text1=message.text.replace(exp, `<a target="_blank" href='$1'>$1</a>`)
+
+         var exp2 =/(^|[^\/])(www\.[\S]+(\b|$))/gim;
+         document.getElementsByClassName("converted_url")[document.getElementsByClassName("converted_url").length-1].innerHTML=text1.replace(exp2, '$1<a target="_blank" href="http://$2">$2</a>');
    
     autoscroll()
 
