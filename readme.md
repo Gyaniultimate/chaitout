@@ -25,4 +25,6 @@ npm run dev to run it on your local machine.
   5. can send image
   6. Links are automatically detected, and replaced with hyperlinks.
   7. detects bad words and prevent them from sending
-  ![image](https://user-images.githubusercontent.com/62829009/120056386-58d66500-c059-11eb-8ea6-e61447857056.png)
+ 
+  ![image](https://user-images.githubusercontent.com/62829009/120387792-f70f4700-c347-11eb-9486-57821c73e69e.png)
+
