@@ -6,6 +6,7 @@ const {generateMessage,generateLocationMessage} = require('./utils/messages')
 const { addUser, removeUser, getUser, getUsersInRoom } = require('./utils/users')
 const socketio = require('socket.io')
 const Filter = require('bad-words')
+const fs = require('fs');
 
 const server = http.createServer(app)
 const io = socketio(server)
@@ -54,6 +55,19 @@ io.on('connection', (socket)=>{
         callback('delivered')
         
     })
+
+    socket.on('sendimg', (message,callback)=>{
+      
+        const user = getUser(socket.id)
+       
+     
+     io.to(user.room).emit('sendimage', generateMessage(user.username,message))
+     callback('delivered')
+     
+ })
+
+    
+    
        
     socket.on('sendLocation', (coords, callback) => {
         const user = getUser(socket.id)

@@ -12,6 +12,7 @@ const $messages = document.querySelector('#messages')
 const messageTemplate = document.querySelector('#message-template').innerHTML
 const locationMessageTemplate = document.querySelector('#location-message-template').innerHTML
 const sidebarTemplate = document.querySelector('#sidebar-template').innerHTML
+const imageTemplate = document.querySelector('#image-message-template').innerHTML
 
 
 // options
@@ -49,6 +50,7 @@ socket.on('message',(message)=>{
         message: message.text,
         currentuser:username,
         
+        
         createdAt: moment(message.createdAt).format('h:mm A')
     })
     $messages.insertAdjacentHTML('beforeend',html)
@@ -65,8 +67,28 @@ socket.on('message',(message)=>{
 
          var exp2 =/(^|[^\/])(www\.[\S]+(\b|$))/gim;
          document.getElementsByClassName("converted_url")[document.getElementsByClassName("converted_url").length-1].innerHTML=text1.replace(exp2, '$1<a target="_blank" href="http://$2">$2</a>');
+        
+           
+
+         
    
     autoscroll()
+
+
+})
+
+socket.on('sendimage',(message)=>{
+  console.log(message)
+  const html = Mustache.render(imageTemplate,{
+    username: message.username,
+    imgsrc: message.text,
+    currentuser:username,
+    
+    
+    createdAt: moment(message.createdAt).format('h:mm A')
+})
+
+$messages.insertAdjacentHTML('beforeend',html)
 
 
 })
@@ -93,6 +115,8 @@ socket.on('roomData', ({ room, users }) => {
 
 
 
+
+
 document.querySelector('#message-form').addEventListener('submit', (e)=>{
 
     e.preventDefault()
@@ -114,8 +138,43 @@ document.querySelector('#message-form').addEventListener('submit', (e)=>{
         }
 
         console.log('Message delivered!')
+        
     })
 })
+
+
+document.querySelector('#sendimg').addEventListener('click', ()=>{
+
+    socket.emit('sendimg', src,(error)=>{
+       
+
+        if (error) {
+            return console.log(error)
+        }
+
+        console.log('Message delivered!')
+        
+    })
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 document.querySelector('#send-location').addEventListener('click', ()=>
 {
@@ -139,7 +198,7 @@ document.querySelector('#send-location').addEventListener('click', ()=>
 
 
         },()=>{
-                 console.log("randi")
+                 
             $sendLocationButton.removeAttribute('disabled')
 
             console.log("locations shared")

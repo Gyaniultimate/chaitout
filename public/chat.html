@@ -18,7 +18,7 @@
         <div class="chat__main">
                 
             <div id="messages" class="chat__messages">
-
+               
 
             </div>
            
@@ -29,8 +29,15 @@
                   <button  >Send</button>
        
           </form>
+
+          
          
            <button id="send-location">Send Location</button>
+           &nbsp;
+           <p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;"></p>
+            <button><label for="file" style="cursor: pointer;">Upload Image</button></p>
+             <button id="sendimg">send image</button>
+           
               </div>
 
 
@@ -66,8 +73,8 @@
           
            background-color: rgb(0, 153, 255);
            color: white ;width: 50%;overflow-wrap: break-word;">
-            <p class="converted_url">  {{message}} </p>  
-                 
+         	 <p  class="converted_url" >  {{message}}</p> 
+             
            
 
         </div>
@@ -91,6 +98,30 @@
 
             </p>
              <p><a href="{{url}}" target="_blank">My current location</a></p>
+
+                  
+            
+ 
+         </div>
+ 
+          
+ 
+     </script>
+
+     <script id="image-message-template" type="text/html">
+        <div class="message">
+            <p>
+                <span class="message__name">
+                    {{username}}
+                   </span>
+    
+                   <span class="message__meta">
+                    {{createdAt}}
+                   </span>
+
+            </p>
+
+             <p><img src={{imgsrc}} width="250" height="250"></p>
 
                   
             
@@ -129,8 +160,17 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+
+
+<script>
+    var loadFile = function(event) {
+       
+        src = URL.createObjectURL(event.target.files[0]);
+        
+    };
+    </script>
    
-  
+  <script>console.log(src)</script>
 </body>
 
 
