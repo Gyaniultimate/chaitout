@@ -34,8 +34,10 @@
          
            <button id="send-location">Send Location</button>
            &nbsp;
-           <p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;"></p>
-            <button><label for="file" style="cursor: pointer;">Upload Image</button></p>
+           <label for="fileUpload" style="display: none;">Choose file:</label>
+	        <button><input type="file" id="fileUpload" name="fileUpload" /></button>
+
+                <button id="jsonConvert">upload image</button>
              <button id="sendimg">send image</button>
            
               </div>
@@ -163,11 +165,24 @@
 
 
 <script>
-    var loadFile = function(event) {
-       
-        src = URL.createObjectURL(event.target.files[0]);
-        
-    };
+    const toBase64 = file => new Promise((resolve, reject) => {
+	    const reader = new FileReader();
+	    reader.readAsDataURL(file);
+	    reader.onload = () => resolve(reader.result);
+	    reader.onerror = error => reject(error);
+	});
+
+	$('#jsonConvert').click(function() {
+		const uploadedFile = document.querySelector('#fileUpload').files[0];
+		toBase64(uploadedFile)
+		.then(res => {
+			src=res;
+            
+		})
+		.catch(err => {
+			console.log(err);
+		})
+	});
     </script>
    
   <script>console.log(src)</script>
